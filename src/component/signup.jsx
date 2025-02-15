@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography, Alert, Link } from "@mui/material";
-import { 
-  createUserWithEmailAndPassword, 
-  sendEmailVerification, 
-  updateProfile, 
-  signInWithPopup 
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../firebase";
 import { db } from "../firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
@@ -34,19 +29,24 @@ const Signup = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
+      
       await updateProfile(user, { displayName: username });
 
+      
       await setDoc(doc(db, "users", user.uid), {
         username,
         email,
       });
 
+      
       await sendEmailVerification(user);
       setMessage("Verification email sent! Please check your inbox.");
 
+      
       setTimeout(() => {
         navigate("/login");
-      }, 2000);
+      }, 2000); 
+
     } catch (err) {
       setError(err.message);
     }
@@ -56,25 +56,29 @@ const Signup = () => {
     try {
       const userCredential = await signInWithPopup(auth, googleProvider);
       const user = userCredential.user;
-
-      const isNewUser = userCredential?.additionalUserInfo?.isNewUser || false;
-
+  
+      
+      const isNewUser = userCredential.additionalUserInfo?.isNewUser || false;
+  
+      
       if (isNewUser) {
         await setDoc(doc(db, "users", user.uid), {
-          username: user.displayName,
+          username: user.displayName || "",
           email: user.email,
         });
       }
-
+  
+      
       if (!user.emailVerified) {
         await sendEmailVerification(user);
       }
-
-      navigate("/dummy");
+  
+      navigate("/dummy"); 
     } catch (err) {
       setError(err.message);
     }
   };
+  
 
   return (
     <Box
@@ -103,19 +107,21 @@ const Signup = () => {
           margin="normal"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          sx={{
-            backgroundColor: "transparent", 
-            borderRadius: "4px", 
-            transition: "background-color 0.3s ease-in-out", 
-            "& .MuiOutlinedInput-root": {
-              color: "black", 
-              "& fieldset": { borderColor: "#86B6F6" }, 
-              "&:hover fieldset": { borderColor: "#86B6F6" }, 
-              "&.Mui-focused": { backgroundColor: "white" },
-            },
-            "& .MuiInputLabel-root": { color: "white" }, 
-            "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
-          }}
+         sx={{
+    backgroundColor: "transparent", 
+    borderRadius: "4px", 
+    transition: "background-color 0.3s ease-in-out", 
+    "& .MuiOutlinedInput-root": {
+      color: "black", 
+      "& fieldset": { borderColor: "#86B6F6" }, 
+      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      "&.Mui-focused": {
+        backgroundColor: "white", 
+      },
+    },
+    "& .MuiInputLabel-root": { color: "white" }, 
+    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+  }}
         />
         <TextField
           label="Email"
@@ -125,19 +131,21 @@ const Signup = () => {
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          sx={{
-            backgroundColor: "transparent", 
-            borderRadius: "4px", 
-            transition: "background-color 0.3s ease-in-out", 
-            "& .MuiOutlinedInput-root": {
-              color: "black", 
-              "& fieldset": { borderColor: "#86B6F6" }, 
-              "&:hover fieldset": { borderColor: "#86B6F6" }, 
-              "&.Mui-focused": { backgroundColor: "white" },
-            },
-            "& .MuiInputLabel-root": { color: "white" }, 
-            "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
-          }}
+         sx={{
+    backgroundColor: "transparent", 
+    borderRadius: "4px", 
+    transition: "background-color 0.3s ease-in-out", 
+    "& .MuiOutlinedInput-root": {
+      color: "black", 
+      "& fieldset": { borderColor: "#86B6F6" }, 
+      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      "&.Mui-focused": {
+        backgroundColor: "white", 
+      },
+    },
+    "& .MuiInputLabel-root": { color: "white" }, 
+    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+  }}
         />
         <TextField
           label="Password"
@@ -148,19 +156,21 @@ const Signup = () => {
           margin="normal"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          sx={{
-            backgroundColor: "transparent", 
-            borderRadius: "4px", 
-            transition: "background-color 0.3s ease-in-out", 
-            "& .MuiOutlinedInput-root": {
-              color: "black", 
-              "& fieldset": { borderColor: "#86B6F6" }, 
-              "&:hover fieldset": { borderColor: "#86B6F6" }, 
-              "&.Mui-focused": { backgroundColor: "white" },
-            },
-            "& .MuiInputLabel-root": { color: "white" }, 
-            "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
-          }}
+         sx={{
+    backgroundColor: "transparent", 
+    borderRadius: "4px", 
+    transition: "background-color 0.3s ease-in-out", 
+    "& .MuiOutlinedInput-root": {
+      color: "black", 
+      "& fieldset": { borderColor: "#86B6F6" }, 
+      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      "&.Mui-focused": {
+        backgroundColor: "white", 
+      },
+    },
+    "& .MuiInputLabel-root": { color: "white" }, 
+    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+  }}
         />
         <TextField
           label="Confirm Password"
@@ -171,31 +181,33 @@ const Signup = () => {
           margin="normal"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          sx={{
-            backgroundColor: "transparent", 
-            borderRadius: "4px", 
-            transition: "background-color 0.3s ease-in-out", 
-            "& .MuiOutlinedInput-root": {
-              color: "black", 
-              "& fieldset": { borderColor: "#86B6F6" }, 
-              "&:hover fieldset": { borderColor: "#86B6F6" }, 
-              "&.Mui-focused": { backgroundColor: "white" },
-            },
-            "& .MuiInputLabel-root": { color: "white" }, 
-            "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
-          }}
+         sx={{
+    backgroundColor: "transparent", 
+    borderRadius: "4px", 
+    transition: "background-color 0.3s ease-in-out", 
+    "& .MuiOutlinedInput-root": {
+      color: "black", 
+      "& fieldset": { borderColor: "#86B6F6" }, 
+      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      "&.Mui-focused": {
+        backgroundColor: "white", 
+      },
+    },
+    "& .MuiInputLabel-root": { color: "white" }, 
+    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+  }}
         />
 
         <Button type="submit" variant="contained" fullWidth sx={{
-          mt: 2,
-          backgroundColor: "#0064E6",
-          color: "white",
-          "&:hover": {
-            backgroundColor: "white", 
-            color: "#0064E6", 
-            border: "1px solid #0064E6", 
-          },
-        }}>
+    mt: 2,
+    backgroundColor: "#0064E6",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "white", 
+      color: "#0064E6", 
+      border: "1px solid #0064E6", 
+    },
+  }}>
           Sign Up
         </Button>
 
