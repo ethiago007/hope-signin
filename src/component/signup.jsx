@@ -107,20 +107,34 @@ const Signup = () => {
           margin="normal"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-         sx={{
-    backgroundColor: "transparent", 
-    borderRadius: "4px", 
-    transition: "background-color 0.3s ease-in-out", 
+          sx={{
+    backgroundColor: "transparent",
+    borderRadius: "4px",
+    transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+    
     "& .MuiOutlinedInput-root": {
-      color: "black", 
-      "& fieldset": { borderColor: "#86B6F6" }, 
-      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      color: "white", // Default text color when not focused
+      "& fieldset": { borderColor: "#86B6F6" },
+      "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", 
+        backgroundColor: "white", // Background turns white when focused
       },
     },
-    "& .MuiInputLabel-root": { color: "white" }, 
-    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+
+    "& .MuiInputLabel-root": { color: "white" }, // Label color
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#86B6F6",
+      fontWeight: "bolder",
+    },
+
+    "& input": {
+      color: "white", // Default text color when not focused
+      transition: "color 0.3s ease-in-out",
+    },
+    
+    "& .MuiOutlinedInput-root.Mui-focused input": {
+      color: "black", // Text turns black when focused
+    },
   }}
         />
         <TextField
@@ -131,20 +145,34 @@ const Signup = () => {
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-         sx={{
-    backgroundColor: "transparent", 
-    borderRadius: "4px", 
-    transition: "background-color 0.3s ease-in-out", 
+          sx={{
+    backgroundColor: "transparent",
+    borderRadius: "4px",
+    transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+    
     "& .MuiOutlinedInput-root": {
-      color: "black", 
-      "& fieldset": { borderColor: "#86B6F6" }, 
-      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      color: "white", // Default text color when not focused
+      "& fieldset": { borderColor: "#86B6F6" },
+      "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", 
+        backgroundColor: "white", // Background turns white when focused
       },
     },
-    "& .MuiInputLabel-root": { color: "white" }, 
-    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+
+    "& .MuiInputLabel-root": { color: "white" }, // Label color
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#86B6F6",
+      fontWeight: "bolder",
+    },
+
+    "& input": {
+      color: "white", // Default text color when not focused
+      transition: "color 0.3s ease-in-out",
+    },
+    
+    "& .MuiOutlinedInput-root.Mui-focused input": {
+      color: "black", // Text turns black when focused
+    },
   }}
         />
         <TextField
@@ -156,20 +184,34 @@ const Signup = () => {
           margin="normal"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-         sx={{
-    backgroundColor: "transparent", 
-    borderRadius: "4px", 
-    transition: "background-color 0.3s ease-in-out", 
+          sx={{
+    backgroundColor: "transparent",
+    borderRadius: "4px",
+    transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+    
     "& .MuiOutlinedInput-root": {
-      color: "black", 
-      "& fieldset": { borderColor: "#86B6F6" }, 
-      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      color: "white", // Default text color when not focused
+      "& fieldset": { borderColor: "#86B6F6" },
+      "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", 
+        backgroundColor: "white", // Background turns white when focused
       },
     },
-    "& .MuiInputLabel-root": { color: "white" }, 
-    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+
+    "& .MuiInputLabel-root": { color: "white" }, // Label color
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#86B6F6",
+      fontWeight: "bolder",
+    },
+
+    "& input": {
+      color: "white", // Default text color when not focused
+      transition: "color 0.3s ease-in-out",
+    },
+    
+    "& .MuiOutlinedInput-root.Mui-focused input": {
+      color: "black", // Text turns black when focused
+    },
   }}
         />
         <TextField
@@ -181,20 +223,34 @@ const Signup = () => {
           margin="normal"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-         sx={{
-    backgroundColor: "transparent", 
-    borderRadius: "4px", 
-    transition: "background-color 0.3s ease-in-out", 
+          sx={{
+    backgroundColor: "transparent",
+    borderRadius: "4px",
+    transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+    
     "& .MuiOutlinedInput-root": {
-      color: "black", 
-      "& fieldset": { borderColor: "#86B6F6" }, 
-      "&:hover fieldset": { borderColor: "#86B6F6" }, 
+      color: "white", // Default text color when not focused
+      "& fieldset": { borderColor: "#86B6F6" },
+      "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", 
+        backgroundColor: "white", // Background turns white when focused
       },
     },
-    "& .MuiInputLabel-root": { color: "white" }, 
-    "& .MuiInputLabel-root.Mui-focused": { color: "#86B6F6", fontWeight: "bolder" } 
+
+    "& .MuiInputLabel-root": { color: "white" }, // Label color
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#86B6F6",
+      fontWeight: "bolder",
+    },
+
+    "& input": {
+      color: "white", // Default text color when not focused
+      transition: "color 0.3s ease-in-out",
+    },
+    
+    "& .MuiOutlinedInput-root.Mui-focused input": {
+      color: "black", // Text turns black when focused
+    },
   }}
         />
 

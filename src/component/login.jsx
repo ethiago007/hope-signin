@@ -230,32 +230,44 @@ const Login = () => {
         sx={{ width: "100%", maxWidth: 400 }}
       >
         <TextField
-          label="Username or Email"
-          fullWidth
-          required
-          variant="outlined"
-          margin="normal"
-          value={identifier}
-          onChange={(e) => setIdentifier(e.target.value)}
-          sx={{
-            backgroundColor: "transparent",
-            borderRadius: "4px",
-            transition: "background-color 0.3s ease-in-out",
-            "& .MuiOutlinedInput-root": {
-              color: "black",
-              "& fieldset": { borderColor: "#86B6F6" },
-              "&:hover fieldset": { borderColor: "#86B6F6" },
-              "&.Mui-focused": {
-                backgroundColor: "white",
-              },
-            },
-            "& .MuiInputLabel-root": { color: "white" },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: "#86B6F6",
-              fontWeight: "bolder",
-            },
-          }}
-        />
+  label="Username or Email"
+  fullWidth
+  required
+  variant="outlined"
+  margin="normal"
+  value={identifier}
+  onChange={(e) => setIdentifier(e.target.value)}
+  sx={{
+    backgroundColor: "transparent",
+    borderRadius: "4px",
+    transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+    
+    "& .MuiOutlinedInput-root": {
+      color: "white", // Default text color when not focused
+      "& fieldset": { borderColor: "#86B6F6" },
+      "&:hover fieldset": { borderColor: "#86B6F6" },
+      "&.Mui-focused": {
+        backgroundColor: "white", // Background turns white when focused
+      },
+    },
+
+    "& .MuiInputLabel-root": { color: "white" }, // Label color
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#86B6F6",
+      fontWeight: "bolder",
+    },
+
+    "& input": {
+      color: "white", // Default text color when not focused
+      transition: "color 0.3s ease-in-out",
+    },
+    
+    "& .MuiOutlinedInput-root.Mui-focused input": {
+      color: "black", // Text turns black when focused
+    },
+  }}
+/>
+
 
         <TextField
           label="Password"
