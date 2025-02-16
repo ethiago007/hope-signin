@@ -160,7 +160,7 @@ const DummyPage = () => {
         {error && <Alert severity="error">{error}</Alert>}
         {success && <Alert severity="success">{success}</Alert>}
 
-        <Typography variant="h4" sx={{ color: "white", paddingTop: 5 }}>
+        <Typography variant="h4" sx={{ color: "white", paddingTop: 3 }}>
   {text.split("").map((char, index) => (
     <motion.span
       key={index}
