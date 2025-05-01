@@ -247,7 +247,7 @@ const Login = () => {
       "& fieldset": { borderColor: "#86B6F6" },
       "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", // Background turns white when focused
+        backgroundColor: "transparent", // Background turns white when focused
       },
     },
 
@@ -263,7 +263,7 @@ const Login = () => {
     },
     
     "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "black", // Text turns black when focused
+      color: "white", // Text turns black when focused
     },
   }}
 />
@@ -287,7 +287,7 @@ const Login = () => {
               "& fieldset": { borderColor: "#86B6F6" },
               "&:hover fieldset": { borderColor: "#86B6F6" },
               "&.Mui-focused": {
-                backgroundColor: "white",
+                backgroundColor: "transparent",
               },
             },
             "& .MuiInputLabel-root": { color: "white" },
@@ -295,6 +295,14 @@ const Login = () => {
               color: "#86B6F6",
               fontWeight: "bolder",
             },
+            "& input": {
+      color: "white", // Default text color when not focused
+      transition: "color 0.3s ease-in-out",
+    },
+    
+    "& .MuiOutlinedInput-root.Mui-focused input": {
+      color: "white", // Text turns black when focused
+    },
           }}
         />
 

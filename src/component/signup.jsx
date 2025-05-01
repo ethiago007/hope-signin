@@ -117,7 +117,7 @@ const Signup = () => {
       "& fieldset": { borderColor: "#86B6F6" },
       "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", // Background turns white when focused
+        backgroundColor: "transparent", // Background turns white when focused
       },
     },
 
@@ -133,7 +133,7 @@ const Signup = () => {
     },
     
     "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "black", // Text turns black when focused
+      color: "white", // Text turns black when focused
     },
   }}
         />
@@ -155,7 +155,7 @@ const Signup = () => {
       "& fieldset": { borderColor: "#86B6F6" },
       "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", // Background turns white when focused
+        backgroundColor: "transparent", // Background turns white when focused
       },
     },
 
@@ -171,7 +171,7 @@ const Signup = () => {
     },
     
     "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "black", // Text turns black when focused
+      color: "white", // Text turns black when focused
     },
   }}
         />
@@ -194,7 +194,7 @@ const Signup = () => {
       "& fieldset": { borderColor: "#86B6F6" },
       "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", // Background turns white when focused
+        backgroundColor: "transparent", // Background turns white when focused
       },
     },
 
@@ -210,7 +210,7 @@ const Signup = () => {
     },
     
     "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "black", // Text turns black when focused
+      color: "white", // Text turns black when focused
     },
   }}
         />
@@ -233,7 +233,7 @@ const Signup = () => {
       "& fieldset": { borderColor: "#86B6F6" },
       "&:hover fieldset": { borderColor: "#86B6F6" },
       "&.Mui-focused": {
-        backgroundColor: "white", // Background turns white when focused
+        backgroundColor: "transparent", // Background turns white when focused
       },
     },
 
@@ -249,7 +249,7 @@ const Signup = () => {
     },
     
     "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "black", // Text turns black when focused
+      color: "white", // Text turns black when focused
     },
   }}
         />
