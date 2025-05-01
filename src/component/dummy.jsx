@@ -114,19 +114,16 @@ const DummyPage = () => {
     }
   };
 
-  const text = `Hiii, ${username || "Mysterious Player"}! 🌚 Congrats! You’ve successfully signed up for Squid Game! 🦑🏆`;
-  const message = `
-    …Just kidding! 😂 (Or are we? 👀)
-    
-    Welcome to this completely pointless page! 🙃 But hey, at least you made it this far.
-    
-    Also, just a little reminder:
-    ✨ You’re doing great, even if it doesn’t feel like it.
-    ✨ If today’s been rough, you’ll pull through—I believe in you!
-    ✨ And let’s be honest, you’re looking amazing today. (No, seriously.)
+  const text = `Hiii, ${username || "Mysterious Player"}! 🌚 `;
+  const message = `Hi there blah blah
+If you’re here for the first time — welcome welcome! ✨
+If you’ve been here before — welcome backkk (you came back? Aww) ❤️
 
-    Now make sure you have a nice day ❤️
-  `;
+So, real talk — this page used to be kinda pointless...
+But guess what? It’s got a point now (lmao just roll with it abeg)
+
+Enough yapping —
+Hit that button to see something kewl 🤓`;
 
   return (
     <>
@@ -185,6 +182,20 @@ const DummyPage = () => {
     </Typography>
   </motion.div>
 )}
+
+<Button type=""
+          variant="contained"
+          
+          sx={{
+            mt: 2,
+            backgroundColor: "#0064E6",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "white",
+              color: "#0064E6",
+              border: "1px solid #0064E6",
+            },
+          }} >Vroom</Button>
       </Box>
 
       

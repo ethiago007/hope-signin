@@ -17,7 +17,7 @@ const Bubble = ({ position, scale, speed }) => {
   return (
     <Sphere ref={bubbleRef} position={position} scale={scale}>
       <MeshDistortMaterial
-        color="#B0E7FF"
+        color="rgba(118, 158, 184, 0.52)"
         transparent
         opacity={0.6}
         distort={0.2}
@@ -44,7 +44,8 @@ const UnderwaterBackground = () => {
         height: "100vh",
         overflow: "hidden",
         zIndex: -1,
-        backgroundImage: `url('/blue.jpg')`, 
+        backgroundColor: "rgba(17, 85, 233, 0.88)",
+        // backgroundImage: `url('/blue.jpg')`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
