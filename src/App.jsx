@@ -5,7 +5,8 @@ import Login from "./component/login";
 import DummyPage from "./component/dummy";
 import UnderwaterBackground from "./component/UnderwaterBackground";
 import Preloader from "./component/loader";
-
+import UnsplashGallery from "./component/gallery"
+import './App.css'
 const AppWrapper = () => {
   const location = useLocation();
   const navigationType = useNavigationType();
@@ -27,12 +28,13 @@ const AppWrapper = () => {
       {loading && <Preloader />}
       {!loading && (
         <>
-          <UnderwaterBackground />
+          
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dummy" element={<DummyPage />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/gallery" element={<UnsplashGallery />} />
           </Routes>
         </>
       )}

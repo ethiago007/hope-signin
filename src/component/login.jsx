@@ -206,192 +206,251 @@ const Login = () => {
         paddingRight: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        component="h1"
-        gutterBottom
-        sx={{ color: "white" }}
-      >
-        Login
-      </Typography>
-      {error && (
-        <Alert severity={unverified ? "warning" : "error"} sx={{ mb: 2 }}>
-          {error}
-        </Alert>
-      )}
-      {successMessage && (
-        <Alert severity="success" sx={{ mb: 2 }}>
-          {successMessage}
-        </Alert>
-      )}
       <Box
-        component="form"
-        onSubmit={handleLogin}
-        sx={{ width: "100%", maxWidth: 400 }}
+        sx={{
+          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2 )",
+          backgroundColor: "white",
+          padding: "20px",
+          borderRadius: "10px",
+          paddingLeft: "40px",
+          paddingRight: "40px",
+        }}
       >
-        <TextField
-  label="Username or Email"
-  fullWidth
-  required
-  variant="outlined"
-  margin="normal"
-  value={identifier}
-  onChange={(e) => setIdentifier(e.target.value)}
-  sx={{
-    backgroundColor: "transparent",
-    borderRadius: "4px",
-    transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
-    
-    "& .MuiOutlinedInput-root": {
-      color: "white", // Default text color when not focused
-      "& fieldset": { borderColor: "#86B6F6" },
-      "&:hover fieldset": { borderColor: "#86B6F6" },
-      "&.Mui-focused": {
-        backgroundColor: "transparent", // Background turns white when focused
-      },
-    },
-
-    "& .MuiInputLabel-root": { color: "white" }, // Label color
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: "#86B6F6",
-      fontWeight: "bolder",
-    },
-
-    "& input": {
-      color: "white", // Default text color when not focused
-      transition: "color 0.3s ease-in-out",
-    },
-    
-    "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "white", // Text turns black when focused
-    },
-  }}
-/>
-
-
-        <TextField
-          label="Password"
-          type="password"
-          fullWidth
-          required
-          variant="outlined"
-          margin="normal"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+        <Typography
+          variant=""
+          component="h1"
+          gutterBottom
           sx={{
-            backgroundColor: "transparent",
-            borderRadius: "4px",
-            transition: "background-color 0.3s ease-in-out",
-            "& .MuiOutlinedInput-root": {
-              color: "black",
-              "& fieldset": { borderColor: "#86B6F6" },
-              "&:hover fieldset": { borderColor: "#86B6F6" },
-              "&.Mui-focused": {
-                backgroundColor: "transparent",
-              },
-            },
-            "& .MuiInputLabel-root": { color: "white" },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: "#86B6F6",
-              fontWeight: "bolder",
-            },
-            "& input": {
-      color: "white", // Default text color when not focused
-      transition: "color 0.3s ease-in-out",
-    },
-    
-    "& .MuiOutlinedInput-root.Mui-focused input": {
-      color: "white", // Text turns black when focused
-    },
-          }}
-        />
-
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-          sx={{
-            mt: 2,
-            backgroundColor: "#0064E6",
-            color: "white",
-            "&:hover": {
-              backgroundColor: "white",
-              color: "#0064E6",
-              border: "1px solid #0064E6",
-            },
+            color: "black",
+            textAlign: "center",
+            fontWeight: "10px",
+            fontSize: "45px",
           }}
         >
-          Login
-        </Button>
-
-        <Button
-          onClick={handleGoogleLogin}
-          variant="outlined"
-          fullWidth
-          sx={{
-            mt: 2,
-            color: "#0064E6",
-            border: "2px solid #0064E6",
-            "&:hover": {
-              backgroundColor: "#0064E6",
-              color: "white",
-              border: "2px solid #0064E6",
-            },
-          }}
-        >
-          Login with Google
-        </Button>
-
-        {unverified && (
-          <Button
-            onClick={handleResendVerification}
-            variant="outlined"
-            fullWidth
-            sx={{ mt: 2 }}
-          >
-            Resend Verification Email
-          </Button>
+          Log<span className="purp">in</span>
+        </Typography>
+        {error && (
+          <Alert severity={unverified ? "warning" : "error"} sx={{ mb: 2 }}>
+            {error}
+          </Alert>
         )}
-      </Box>
-      <Typography sx={{ mt: 2 }}>
-        <Link
-          onClick={handleOpenForgotPassword}
-          underline="hover"
-          sx={{ cursor: "pointer" }}
+        {successMessage && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {successMessage}
+          </Alert>
+        )}
+        <Box
+          component="form"
+          onSubmit={handleLogin}
+          sx={{ width: "100%", maxWidth: 400 }}
         >
-          Forgot Password?
-        </Link>
-      </Typography>
-      <Dialog open={openForgotPassword} onClose={handleCloseForgotPassword}>
-        <DialogTitle>Reset Password</DialogTitle>
-        <DialogContent>
           <TextField
-            autoFocus
-            margin="dense"
-            label="Enter your email"
-            type="email"
+            label="Username or Email"
             fullWidth
-            variant="outlined"
-            value={resetEmail}
-            onChange={(e) => setResetEmail(e.target.value)}
+            required
+            variant="standard"
+            margin="normal"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            sx={{
+              mb: 2,
+              backgroundColor: "transparent",
+              borderRadius: "4px",
+              transition: "background-color 0.3s ease-in-out",
+
+              "& .MuiInputBase-root": {
+                color: "black", // input text color
+              },
+
+              "& .MuiInputBase-root:before": {
+                borderBottom: "1px solid #ccc", // default underline
+              },
+              "& .MuiInputBase-root:hover:before": {
+                borderBottom: "2px solid rgb(61, 44, 141)", // hover underline
+              },
+              "& .MuiInputBase-root:after": {
+                borderBottom: "2px solid #3d2c8d", // focused underline
+              },
+
+              "& .MuiInputLabel-root": {
+                color: "black",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#3d2c8d",
+                fontWeight: "bolder",
+              },
+
+              "& input": {
+                color: "black",
+                transition: "color 0.3s ease-in-out",
+              },
+            }}
           />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseForgotPassword} color="secondary">
-            Cancel
+
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            required
+            variant="standard"
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            sx={{
+              backgroundColor: "transparent",
+              borderRadius: "4px",
+              transition: "background-color 0.3s ease-in-out",
+
+              "& .MuiInputBase-root": {
+                color: "black", // input text color
+              },
+
+              "& .MuiInputBase-root:before": {
+                borderBottom: "1px solid #ccc", // default underline
+              },
+              "& .MuiInputBase-root:hover:before": {
+                borderBottom: "2px solid #3d2c8d", // hover underline
+              },
+              "& .MuiInputBase-root:after": {
+                borderBottom: "2px solid #3d2c8d", // focused underline
+              },
+
+              "& .MuiInputLabel-root": {
+                color: "black",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#3d2c8d",
+                fontWeight: "bolder",
+              },
+
+              "& input": {
+                color: "black",
+                transition: "color 0.3s ease-in-out",
+              },
+            }}
+          />
+
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{
+              mt: 3,
+              backgroundColor: "#3d2c8d",
+              borderRadius: "10px",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "white",
+                color: "#3d2c8d",
+                border: "1px solid #3d2c8d",
+                borderRadius: "10px",
+              },
+            }}
+          >
+            Login
           </Button>
-          <Button onClick={handleForgotPassword} color="primary">
-            Send Reset Link
+
+          <Button
+            onClick={handleGoogleLogin}
+            variant="outlined"
+            fullWidth
+            sx={{
+              mt: 3,
+              color: "#3d2c8d",
+              borderRadius: "10px",
+              border: "2px solid #3d2c8d",
+              "&:hover": {
+                backgroundColor: "#3d2c8d",
+                color: "white",
+                border: "2px solid #3d2c8d",
+                borderRadius: "10px",
+              },
+            }}
+          >
+            Login with Google
           </Button>
-        </DialogActions>
-      </Dialog>
-      ;
-      <Typography sx={{ mt: 2, color: "white" }}>
-        Don't have an account?{" "}
-        <Link href="/signup" underline="hover" sx={{ cursor: "pointer" }}>
-          Sign Up
-        </Link>
-      </Typography>
+
+          {unverified && (
+            <Button
+              onClick={handleResendVerification}
+              variant="outlined"
+              fullWidth
+              sx={{ mt: 2 }}
+            >
+              Resend Verification Email
+            </Button>
+          )}
+        </Box>
+        <Typography sx={{ mt: 4, textAlign: "center" }}>
+          <Link
+            onClick={handleOpenForgotPassword}
+            underline="hover"
+            sx={{ cursor: "pointer", color: "#3d2c8d" }}
+          >
+            Forgot Password?
+          </Link>
+        </Typography>
+        <Dialog open={openForgotPassword} onClose={handleCloseForgotPassword}>
+          <DialogTitle>Reset Password</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Enter your email"
+              type="email"
+              fullWidth
+              variant="outlined"
+              value={resetEmail}
+              onChange={(e) => setResetEmail(e.target.value)}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  color: "black",
+                  "& fieldset": {
+                    borderColor: "#ccc", // default border
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#3d2c8d", // hover border
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#3d2c8d", // focused border
+                    borderWidth: "2px",
+                  },
+                },
+
+                "& input": {
+                  color: "black",
+                },
+
+                "& .MuiInputLabel-root": {
+                  color: "black",
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  color: "#3d2c8d",
+                  fontWeight: "bolder",
+                },
+              }}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseForgotPassword} color="secondary">
+              Cancel
+            </Button>
+            <Button onClick={handleForgotPassword} color="secondary">
+              Send Reset Link
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Typography sx={{ mt: 2, color: "black", textAlign: "center" }}>
+          Don't have an account?{" "}
+          <Link
+            href="/signup"
+            underline="hover"
+            sx={{ cursor: "pointer", color: "#3d2c8d" }}
+          >
+            Sign Up
+          </Link>
+        </Typography>
+      </Box>
     </Box>
   );
 };

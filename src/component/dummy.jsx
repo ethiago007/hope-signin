@@ -185,7 +185,7 @@ Hit that button to see something kewl 🤓`;
 
 <Button type=""
           variant="contained"
-          
+          href="/gallery"
           sx={{
             mt: 2,
             backgroundColor: "#0064E6",
