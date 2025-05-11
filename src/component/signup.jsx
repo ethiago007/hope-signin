@@ -113,7 +113,7 @@ const Signup = () => {
             fontSize: "45px",
           }}
         >
-          Sign<span className="purp">up</span>
+          Signup
         </Typography>
         {error && (
           <Alert severity="error" sx={{ mb: 2 }}>

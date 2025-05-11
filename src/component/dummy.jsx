@@ -23,6 +23,7 @@ import {
 import { doc, getDoc, updateDoc } from "firebase/firestore"; 
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import BackgroundDecor from './confetti.jsx';
 
 
 
@@ -114,10 +115,11 @@ const DummyPage = () => {
     }
   };
 
-  const text = `Hiii, ${username || "Mysterious Player"}! 🌚 `;
+  const greeting = "Hiii, ";
+const namePart = ` ${username || "Mysterious Player"}! `;
   const message = `Hi there blah blah
 If you’re here for the first time — welcome welcome! ✨
-If you’ve been here before — welcome backkk (you came back? Aww) ❤️
+If you’ve been here before — welcome backkk (you came back? Aww) 
 
 So, real talk — this page used to be kinda pointless...
 But guess what? It’s got a point now (lmao just roll with it abeg)
@@ -127,6 +129,7 @@ Hit that button to see something kewl 🤓`;
 
   return (
     <>
+    <BackgroundDecor />
       <Box
         sx={{
           display: "flex",
@@ -142,7 +145,7 @@ Hit that button to see something kewl 🤓`;
         <Box sx={{ position: "absolute", top: 16, right: 16 }}>
           <Avatar
             alt={username}
-            sx={{ width: 50, height: 50, cursor: "pointer" }}
+            sx={{ width: 50, height: 50, cursor: "pointer", backgroundColor: "#3d2c8d" }}
             onClick={handleAvatarClick}
           >
             {username ? username.charAt(0).toUpperCase() : "M"}
@@ -157,18 +160,31 @@ Hit that button to see something kewl 🤓`;
         {error && <Alert severity="error">{error}</Alert>}
         {success && <Alert severity="success">{success}</Alert>}
 
-        <Typography variant="h4" sx={{ color: "white", paddingTop: 3 }}>
-  {text.split("").map((char, index) => (
+        <Typography variant="h4" sx={{ paddingTop: 3, fontWeight: "bold", display: "flex", flexWrap: "wrap" }}>
+  {greeting.split("").map((char, index) => (
     <motion.span
-      key={index}
+      key={`greet-${index}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: index * 0.05 }}
+      style={{ color: "#3d2c8d" }} 
+    >
+      {char}
+    </motion.span>
+  ))}
+
+  {namePart.split("").map((char, index) => (
+    <motion.span
+      key={`name-${index}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: (greeting.length + index) * 0.05 }}
       onAnimationComplete={() => {
-        if (index === text.length - 1) {
+        if (index === namePart.length - 1) {
           setTypingFinished(true);
         }
       }}
+      style={{ color: "black" }} 
     >
       {char}
     </motion.span>
@@ -177,7 +193,7 @@ Hit that button to see something kewl 🤓`;
 
 {typingFinished && (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
-    <Typography variant="body1" sx={{ whiteSpace: "pre-line", marginTop: 3, color: "white" }}>
+    <Typography variant="body1" sx={{ whiteSpace: "pre-line", marginTop: 3, color: "black" }}>
       {message}
     </Typography>
   </motion.div>
@@ -188,12 +204,12 @@ Hit that button to see something kewl 🤓`;
           href="/gallery"
           sx={{
             mt: 2,
-            backgroundColor: "#0064E6",
+            backgroundColor: "#3d2c8d",
             color: "white",
             "&:hover": {
               backgroundColor: "white",
-              color: "#0064E6",
-              border: "1px solid #0064E6",
+              color: "#3d2c8d",
+              border: "1px solid #3d2c8d",
             },
           }} >Vroom</Button>
       </Box>

@@ -227,7 +227,7 @@ const Login = () => {
             fontSize: "45px",
           }}
         >
-          Log<span className="purp">in</span>
+          Login
         </Typography>
         {error && (
           <Alert severity={unverified ? "warning" : "error"} sx={{ mb: 2 }}>
