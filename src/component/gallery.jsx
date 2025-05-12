@@ -188,7 +188,7 @@ const GalleryPage = () => {
 
   return (
     <>
-      <Box display="flex" sx={{ height: "100vh" }}>
+      <Box display="flex" sx={{ height: "100vh", margin: 0, padding: 0 }}>
         {" "}
         <Collapse in={open} orientation="horizontal">
           {" "}
