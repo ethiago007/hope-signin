@@ -100,7 +100,12 @@ const GalleryPage = () => {
     setSearchTerm(label);
     setActive(label);
     fetchImages(label);
+
+    if(isMobile) {
+      setOpen(false);
+    };
   };
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
